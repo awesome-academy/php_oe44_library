@@ -1,6 +1,7 @@
 @extends('client.layouts.app')
 
 @section('content')  
+@include('client.common.sidebar', ['categories' => $categories])
     <div class="container">
         @include('common.notification')
         <h2>{{ trans('books.bookslist') }}</h2>

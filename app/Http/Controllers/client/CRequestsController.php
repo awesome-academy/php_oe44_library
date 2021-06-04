@@ -84,6 +84,7 @@ class CRequestsController extends Controller
                 }
             }
         } else {
+            
             return redirect()->route('client.books')->with('error', trans('books.nobook'));
         }    
 

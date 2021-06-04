@@ -47,6 +47,7 @@ Route::group(['middleware' => ['locale', 'isuser', ]], function() {
     Route::post('request/store', [CRequestsController::class, 'store'])->name('request.store');
 });
 
+Route::get('all-books/{category}', [CBooksController::class, 'index'])->name('client.books');
 Route::get('all-books', [CBooksController::class, 'index'])->name('client.books');
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
