@@ -3,13 +3,15 @@ var pusher = new Pusher(key, {
     cluster: "ap1"
 });
 var channel = pusher.subscribe('NotificationEvent');
-channel.bind('send-message', function(data) {
+channel.bind('send-message-client', function(data) {
     var newNotificationHtml = `
     <a class="dropdown-item" href="#">
         <span>Your request ${data.book} was accepted</span><br>
     </a>
     `;
     $('.menu-notification').prepend(newNotificationHtml);
+    count = count + 1
+    document.getElementById('abc').innerHTML = count
 });
 
 $('#navbarDropdown').click(function(){ 

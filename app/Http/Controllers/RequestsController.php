@@ -58,7 +58,7 @@ class RequestsController extends Controller
                 $options
             );
     
-            $pusher->trigger('NotificationEvent', 'send-message', $data);
+            $pusher->trigger('NotificationEvent', 'send-message-client', $data);
             
             return redirect()->back();
         } else {
