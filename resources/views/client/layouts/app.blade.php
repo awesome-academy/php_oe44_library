@@ -44,14 +44,16 @@
                         <!-- Authentication Links -->
                         
                             <li class="nav-item dropdown dropdown-notifications">
-                                <a id="navbarDropdown" class=" dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                   <p id="abc" class='abc'>{{Auth::user()->unreadNotifications->count()}}</p>
+                                <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <img src="{{asset('/img/bell.png')}}" alt="">
+                                    <span class="badge badge-light" id="count-notification">{{Auth::user()->unreadNotifications->count()}}</span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right menu-notification" aria-labelledby="navbarDropdown">
                                     @foreach (Auth::user()->unreadNotifications as $notification)
-                                            <a class="dropdown-item" href="#" >
-                                                <span>Your request {{$notification->data['book']}} was accepted</span>
-                                            </a>
+                                        <a class="dropdown-item card" href="{{$notification->data['link']}}
+                                            <h5 class="card-title">{{$notification->data['title']}}</h5>
+                                            <p class="card-text">{{$notification->data['user']}} -> {{$notification->data['book']}}</p>
+                                        </a>
                                     @endforeach
                                 </div>
                             </li>
